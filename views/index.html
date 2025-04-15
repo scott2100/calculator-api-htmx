@@ -1,0 +1,25 @@
+{{ block "index" . }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Title</title>
+    <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div>
+        <input type="number" id="a" name="a">
+        <input type="number" id="b" name="b">
+        <p></p>
+        <div id="operations">
+            <button id="add" hx-post="/add" hx-include="[name='a'], [name='b']" hx-swap="outerhtml" hx-target="#result">Add</button>
+            <button id="subtract" hx-post="/subtract" hx-include="[name='a'], [name='b']" hx-swap="outerhtml" hx-target="#result">Subtract</button>
+            <button id="multiply" hx-post="/multiply" hx-include="[name='a'], [name='b']" hx-swap="outerhtml" hx-target="#result">Multiply</button>
+            <button id="divide" hx-post="/divide" hx-include="[name='a'], [name='b']" hx-swap="outerhtml" hx-target="#result">Divide</button>
+        </div>
+        <div id="result"></div>
+    </div>
+</body>
+</html>
+{{ end }}
